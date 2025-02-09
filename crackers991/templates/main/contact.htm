@@ -1,0 +1,77 @@
+{% extends 'base.htm' %}
+
+{% block content %}
+
+{% include 'Navbar/index.htm' %}
+<div class="container" style="margin-top: 60px;">
+    <h1 class="text-center fw-bold display-4">CONTACT US</h1> <br>
+    <h4 class="text-center">&#x1F386; <strong>99crackers.com – Your Trusted Fireworks Partner</strong></h4>
+    <p>Thank you for choosing 99crackers.com for all your fireworks needs. We are happy to assist you with any inquiries or orders. Feel free to contact us using the details below:</p>
+
+    <p><strong>Business Hours:</strong> Monday to Saturday: 9:00 AM to 6:00 PM (IST)</p><br>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>&#x1F4CD; <strong>Visit Us:</strong></h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.122064507358!2d77.88942627477812!3d9.322451084326982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06b550ac40b6e3%3A0x1abbefdb0aa65d99!2sKavitha%20Cracker%20Shop!5e0!3m2!1sen!2sin!4v1737374123777!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-md-6 d-flex flex-column align-items-center justify-content-center text-center">
+            <h1><strong>Our Address</strong></h1>
+            <p class="text-start">Kavitha Cracker Shop<br>
+            MD 681, 3/7/1 Main Road, Taluk,<br>
+            Near Government School, Mettupatti,<br>
+            Sattur, Tamil Nadu 626203</p>
+        </div>
+    </div><br>
+    <h4>&#x1F4DE; <strong>Call Us:</strong></h4>
+    <ul>
+        <li>Customer Support: +91 94444 69730</li>
+        <li>Wholesale Inquiries: +91 88007 45172</li>
+    </ul><br>
+
+    <h4>&#x1F4E7; <strong>Email Us:</strong></h4>
+    <ul>
+        <li>General Inquiries: <a href="mailto:info@99crackers.com">info@99crackers.com</a></li>
+        <li>Wholesale Inquiries: <a href="mailto:wholesale@99crackers.com">wholesale@99crackers.com</a></li>
+    </ul>
+<br>
+    <h4>&#x1F4BC; <strong>Wholesale Orders:</strong></h4>
+    <p>For bulk orders and wholesale inquiries, our dedicated team is here to assist. We offer special pricing and customized solutions for large-scale events and businesses.</p>
+<br>
+    <h4>&#x1F310; <strong>Online Presence:</strong></h4>
+    <ul>
+        <li>Website: <a href="https://www.99crackers.com" target="_blank">www.99crackers.com</a></li>
+        <li>Social Media: Follow us on <a href="#">Facebook</a> and <a href="#">Instagram</a></li>
+    </ul>
+<br>
+    <h4>&#x1F4DD; <strong>Leave a Message:</strong></h4>
+    <p>Use the form below to send us a message, and our team will respond to you as soon as possible.</p>
+    <form method="POST" action="" autocapitalize="off" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+            <label for="name">Enter Your Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="tel" name="mobile" placeholder="Enter your Mobile Number">
+            <label for="number">Enter Your Mobile Number</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control" id="message" name="message" placeholder="Enter your message" style="height: 100px;"></textarea>
+            <label for="message">Your Message</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+    <br>
+    <h4>&#x2B50; <strong>Connect with Us:</strong></h4>
+    <p>Stay updated on the latest products, promotions, and news by following us on social media. Join our community and share your celebration moments with us!</p>
+
+    <p class="text-center"><strong>99crackers.com – Lighting Moments, Creating Memories!</strong></p>
+    <div class="text-center my-4">
+        <a href="/" class="btn btn-secondary ">
+            <i class="fa-solid fa-cart-shopping"></i> Back To Home
+        </a>
+    </div>
+
+</div>
+
+{% endblock content %}
