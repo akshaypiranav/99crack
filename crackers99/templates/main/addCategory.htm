@@ -1,0 +1,87 @@
+{% extends 'base.htm' %}
+
+{% block content %}
+
+{% include 'Navbar/adminNavbar.htm' %}
+<div class="container margin col-12 col-md-12 col-xs-12 margin" style="margin-top: 170px !important;">
+    <h1 class="text-center fw-bold">Admin Page</h1>
+    <form action="" method="POST" class="border border-secondary p-4">
+        {% csrf_token %}
+        <h3 class="text-center mb-2">Add Category</h3>
+    
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert 
+                {% if message.tags == 'error' %}
+                    alert-danger
+                {% elif message.tags == 'success' %}
+                    alert-success
+                {% endif %}
+                fade-message" style="display:none;">
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+
+    
+    
+        <div class="form-floating mb-3 my-2">
+            <input type="text" class="form-control" name="productName" id="floatingInput" placeholder="Product Name">
+            <label for="floatingInput">Product Name</label>
+        </div>
+        <div class="form-floating my-2">
+            <textarea class="form-control" name="description" id="floatingDescription" placeholder="Description" style="height: 100px;"></textarea>
+            <label for="floatingDescription">Description</label>
+        </div>
+    
+        <div class="text-center my-2">
+            <input type="submit" value="Add Category" class="btn btn-secondary w-100">
+        </div>
+    </form>
+    
+    <br><br>
+    <div class="container">
+        <h3 class="text-center">OUR CATEGORIES</h3>
+        <div class="table-responsive mx-auto">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if categories %}
+                    {% for i in categories %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ i.name }}</td>
+                        <td><a href="/updateCategory/{{ i.id }}" class="btn btn-success">Update</a></td>
+                        <td><a href="/deleteCategory/{{ i.id }}" onclick="return confirm('Are you sure you want to delete this Category?')" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+<script>
+    $(document).ready(function() {
+        const lastMessage = $('.fade-message').last();
+
+        if (lastMessage.length) {
+            lastMessage.fadeIn(500); 
+
+            setTimeout(function() {
+                lastMessage.fadeOut(1000);  
+            }, 3000);  
+        }
+    });
+</script>
+
+
+{% endblock content %}
